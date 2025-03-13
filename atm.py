@@ -2,11 +2,11 @@
 # 1. 입금, 2. 출금, 3. 영수증 보기, 4. 종료 => 글자를 입력받을지 / 숫자를 입력받을지
 # 숫자로 원하는 기능을 입력할 수 있게 만들어주섿요. 그리고 사용자가 입력한 기능을 num에 넣어주세요.
 # deposit_amount: 
-
+"""
 balance = 3000
 
 while True:
-    num = input("사용하실 기능의 번호를 선택하세요. 1. 입금, 2. 출금, 3. 영수증 보기, 4. 종료)")
+    num = input("사용하실 기능의 번호를 선택하세요. (1. 입금, 2. 출금, 3. 영수증 보기, 4. 종료)")
 
     if num == "1":
         deposit_amount = input("입금할 금액을 입력해주세요 : ") # *** isdigit => 숫자 = True, 문자 = False
@@ -14,7 +14,7 @@ while True:
             balance += int(deposit_amount) # balance = balance + int(deposit_amount) => 재할당
             print(f"입금하신 금액 {deposit_amount}원이 입금 완료되었습니다. 현재 잔액은 {balance}입니다.")
         else:
-            print("정신차리고, 제대로 된 숫자형태로 입력해 이자식아")
+            print("정신차리고, 제대로 된 숫자형태로 입력하시길 바랍니다. ")
 
     if num == "2":
         pass
@@ -22,6 +22,34 @@ while True:
     if num == "3":
         pass
 
+    if num == "4":
+        print("서비스를 종료합니다.")
+        break
+
+"""
+
+balance = 3000
+
+while True:
+    num = input("사용하실 기능의 번호를 입력해주세요(1.입금, 2.출금, 3.영수증 보기, 4.종료) ")
+
+    if num == "1":
+        deposit_amount = input("입금할 금액을 입력해주세요 : ") # "123123123".isdigit => True
+        if deposit_amount.isdigit() and int(deposit_amount) > 0:  #첫번째 조건 문자가 입력된건 아닌지 확인 / 0 보다 큰 금액을 입력했는지 
+            balance += int(deposit_amount) # balance = balance + int(deposit_amount)
+            print(f"고객님이 입금하신 금액은 {deposit_amount}원이고, 현재 잔액은 {balance}원 입니다.")
+        else:
+            print("정신차리고, 제대로된 숫자형태로 입금액을 작성해줘!!!")
+    if num == "2":
+        withdraw_amount = input("출금할 금액을 입력해주세요 : ")
+        if withdraw_amount.isdigit() and int(withdraw_amount) > 0:
+            withdraw_amount = min(balance, int(withdraw_amount))
+            balance -= withdraw_amount # balance = balance - withdraw_amount
+            print(f"고객님이 출금한 금액은 {withdraw_amount}원이고, 현재 잔액은 {balance}원 입니다.")
+        else:
+            print("정신차리고, 제대로된 숫자형태로 입금액을 작성해줘!!!")
+    if num == "3":
+        pass
     if num == "4":
         print("서비스를 종료합니다.")
         break
