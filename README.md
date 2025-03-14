@@ -43,6 +43,7 @@
 ## 🧩 사용 화면
 
 ### 프로그램 실행
+![Image](https://github.com/user-attachments/assets/d1733269-628c-4a63-bdea-6f4cb6a86671)
 
 
 ---
